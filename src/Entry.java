@@ -1,3 +1,6 @@
+
+import java.lang.reflect.Array;
+
 /*
  * Made for purposes connected with semestral work
  * Copying and other editing without permission of the author
@@ -119,7 +122,13 @@ public class Entry {
     }
     
     public String toString(){
-        return "Skladba: " + this.aSong + "Album: " + this.aAlbum + "Kapela: " 
-                + this.aBand + "Žáner: " + this.aGenre.toString() + "Rok: " + this.aYear + "Dĺžka: " + this.aDuration + "s"; 
+        return "Skladba: " + this.aSong 
+                + "Album: " + this.aAlbum 
+                + "Kapela: " + this.aBand
+                + "Žáner: " + this.aGenre.toString() 
+                + "Rok: " + this.aYear 
+                + "Dĺžka: " + this.aDuration + "s"; 
     }
+    
+
 }
