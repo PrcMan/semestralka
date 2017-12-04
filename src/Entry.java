@@ -29,8 +29,8 @@ public class Entry {
         this.aSong = paSong;
         this.aAlbum = paAlbum;
         this.aBand = paBand;
-        this.aYear = 0;
-        this.aDuration = 0;
+        this.aYear = paYear;
+        this.aDuration = paDuration;
         this.aGenre = paGenre;
     }
     public Entry (String paCSLine) {
@@ -48,6 +48,8 @@ public class Entry {
         }
         //this.aYear = (int)parts[5];
         //this.aDuration = (int)parts[4];
+        this.aYear = 0;
+        this.aDuration = 0;
     }
     /**
      * Getter for song
