@@ -14,6 +14,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.AbstractTableModel;
+import musiclibrary.MusicLibrary;
 /**
  * Write a description of class T1Data here.
  * 
@@ -47,29 +48,7 @@ public class T1Data extends JPanel {
         System.out.println("Rows: " + NewModel.getRowCount());
         System.out.println("Cols: " + NewModel.getColumnCount());
     }
-    public class CSVFile {
-        private final ArrayList<String[]> Rs = new ArrayList<String[]>();
-        private String[] OneRow;
 
-        public ArrayList<String[]> ReadCSVfile(File DataFile) {
-            try {
-                BufferedReader brd = new BufferedReader(new FileReader(DataFile));
-                while (brd.ready()) {
-                    String st = brd.readLine();
-                    //OneRow = st.split(",|\\s|;");
-                    this.OneRow = st.split("\\|");
-                    this.Rs.add(this.OneRow);
-                   
-                    System.out.println(Arrays.toString(this.OneRow));
-                } // end of while
-            } // end of try
-            catch (IOException e) {
-                String errmsg = e.getMessage();
-                System.out.println("File not found:" + errmsg);
-            } // end of Catch
-            return this.Rs;
-        } // end of ReadFile method
-    } // end of CSVFile class
 
     private static void createAndShowGUI() {
         // Create and set up the window.
@@ -81,36 +60,6 @@ public class T1Data extends JPanel {
         // Display the window.
         frame.pack();
         frame.setVisible(true);
-    }
-
-    class MusicLibrary extends AbstractTableModel {
-        private final String[] columnNames = { "Skladba", "Kapela", "Album", "Žáner", "Dĺžka", "Rok vydania" };
-        private ArrayList<String[]> Data = new ArrayList<String[]>();
-
-        public void AddCSVData(ArrayList<String[]> DataIn) {
-            this.Data = DataIn;
-            this.fireTableDataChanged();
-        }
-
-        @Override
-        public int getColumnCount() {
-            return this.columnNames.length;// length;
-        }
-
-        @Override
-        public int getRowCount() {
-            return this.Data.size();
-        }
-
-        @Override
-        public String getColumnName(int col) {
-            return this.columnNames[col];
-        }
-
-        @Override
-        public Object getValueAt(int row, int col) {
-            return this.Data.get(row)[col];
-        }
     }
 
     /**
