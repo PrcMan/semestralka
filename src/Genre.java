@@ -10,7 +10,33 @@
  * @author krama
  */
 public enum Genre {
-    ROCK, POP_PUNK, PUNK, ALTERNATIVE, METALCORE, POST_HARDCORE, METAL, HARDCORE,
-    DEATHCORE, PUNK_ROCK, HARD_ROCK, ELECTRONIC, RAP_ROCK, POP, VOICE_MEMO,RAP, 
-    ELECTRONIC_ROCK, OTHER, REMIX 
+    ROCK("Rock"),
+    POP_PUNK("Pop-Punk"), 
+    PUNK("Punk"), 
+    ALTERNATIVE("Alternative"), 
+    METALCORE("Metalcore"), 
+    POST_HARDCORE("Post-Hardcore"), 
+    METAL("Metal"), 
+    HARDCORE("Hardcore"),
+    DEATHCORE("Deathcore"), 
+    PUNK_ROCK("Punk-Rock"), 
+    HARD_ROCK("Hard Rock"), 
+    ELECTRONIC("Electronic"), 
+    RAP_ROCK("Rap-rock"), 
+    POP("Pop"), 
+    VOICE_MEMO("Voice Memo"),
+    RAP("Rap"), 
+    ELECTRONIC_ROCK("Electronic-Rock"), 
+    OTHER("Uncategorised"), 
+    REMIX("Remix");
+    
+    private String aGenre;
+    
+    private Genre(String paGenre){
+        this.aGenre = paGenre;
+    }
+    
+    public String getGenre(){
+        return aGenre;
+    }
 }
