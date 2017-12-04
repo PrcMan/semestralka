@@ -102,6 +102,6 @@ public class Entry {
     
     public String toString(){
         return "Skladba: " + this.aSong + "Album: " + this.aAlbum + "Kapela: " 
-                + this.aBand + "Žáner: " + this.aGenre + "Rok: " + this.aYear + "Dĺžka: " + this.aDuration; 
+                + this.aBand + "Žáner: " + this.aGenre.toString() + "Rok: " + this.aYear + "Dĺžka: " + this.aDuration + "s"; 
     }
 }
