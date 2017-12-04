@@ -33,6 +33,20 @@ public class Entry {
         this.aDuration = paDuration;
         this.aGenre = paGenre;
     }
+    public Entry (String paCSLine) {
+        String[] parts = paCSLine.split("|");
+        this.aSong = parts[0];
+        this.aBand = parts[1];
+        this.aAlbum = parts[2];
+        for(Genre genre : Genre.values()){
+            if(genre.toString() == parts[3]){
+                this.aGenre = genre;
+            }
+        }
+        if(this.aGenre == null){
+            this.aGenre = Genre.OTHER;
+        }
+    }
     /**
      * Getter for song
      * @return song
