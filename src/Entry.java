@@ -29,8 +29,8 @@ public class Entry {
         this.aSong = paSong;
         this.aAlbum = paAlbum;
         this.aBand = paBand;
-        this.aYear = paYear;
-        this.aDuration = paDuration;
+        this.aYear = 0;
+        this.aDuration = 0;
         this.aGenre = paGenre;
     }
     public Entry (String paCSLine) {
@@ -39,13 +39,15 @@ public class Entry {
         this.aBand = parts[1];
         this.aAlbum = parts[2];
         for(Genre genre : Genre.values()){
-            if(genre.toString() == parts[3]){
+            if(parts[3].equals(genre.toString())){
                 this.aGenre = genre;
             }
         }
         if(this.aGenre == null){
             this.aGenre = Genre.OTHER;
         }
+        //this.aYear = (int)parts[5];
+        //this.aDuration = (int)parts[4];
     }
     /**
      * Getter for song

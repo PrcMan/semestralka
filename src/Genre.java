@@ -22,7 +22,7 @@ public enum Genre {
     PUNK_ROCK("Punk-Rock"), 
     HARD_ROCK("Hard Rock"), 
     ELECTRONIC("Electronic"), 
-    RAP_ROCK("Rap-rock"), 
+    RAP_ROCK("Rap-Rock"), 
     POP("Pop"), 
     VOICE_MEMO("Voice Memo"),
     RAP("Rap"), 
