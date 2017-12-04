@@ -100,4 +100,8 @@ public class Entry {
         this.aGenre = paGenre;
     }
     
+    public String toString(){
+        return "Skladba: " + this.aSong + "Album: " + this.aAlbum + "Kapela: " 
+                + this.aBand + "Žáner: " + this.aGenre + "Rok: " + this.aYear + "Dĺžka: " + this.aDuration; 
+    }
 }
