@@ -4,7 +4,7 @@
  * is strictly prohibited and is punishable by law. This work is by 
  * all means property of the author.
  */
-package musiclibrary;
+
 
 import java.util.ArrayList;
 import javax.swing.table.AbstractTableModel;
@@ -15,9 +15,9 @@ import javax.swing.table.AbstractTableModel;
  */
 public class MusicLibrary extends AbstractTableModel{
     private final String[] columnNames = { "Skladba", "Kapela", "Album", "Žáner", "Dĺžka", "Rok vydania" };
-        private ArrayList<String[]> Data = new ArrayList<String[]>();
+        private ArrayList<Entry[]> Data = new ArrayList<Entry[]>();
 
-        public void AddCSVData(ArrayList<String[]> DataIn) {
+        public void AddCSVData(ArrayList<Entry[]> DataIn) {
             this.Data = DataIn;
             this.fireTableDataChanged();
         }
