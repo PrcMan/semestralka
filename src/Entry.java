@@ -49,10 +49,10 @@ public class Entry {
         if(this.aGenre == null){
             this.aGenre = Genre.OTHER;
         }
-        //this.aYear = (int)parts[5];
-        //this.aDuration = (int)parts[4];
-        this.aYear = 0;
-        this.aDuration = 0;
+        this.aYear = Integer.parseInt(parts[5]);
+        this.aDuration = Integer.parseInt(parts[4]);
+        //this.aYear = 0;
+        //this.aDuration = 0;
     }
     /**
      * Getter for song
