@@ -45,7 +45,7 @@ public class T1Data extends JPanel {
         MusicLibrary NewModel = new MusicLibrary();
         this.table.setModel(NewModel);
         File DataFile = new File("Library.csv");
-        ArrayList<String[]> Rs2 = Rd.ReadCSVfile(DataFile);
+        ArrayList<Entry[]> Rs2 = Rd.ReadCSVfile(DataFile);
         NewModel.AddCSVData(Rs2);
         System.out.println("Rows: " + NewModel.getRowCount());
         System.out.println("Cols: " + NewModel.getColumnCount());

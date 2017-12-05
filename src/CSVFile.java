@@ -18,16 +18,16 @@ import java.util.Arrays;
  * @author krama
  */
 public class CSVFile {
-private final ArrayList<String[]> Rs = new ArrayList<String[]>();
-        private String[] OneRow;
+private final ArrayList<Entry[]> Rs = new ArrayList<Entry[]>();
+        private Entry[] OneRow;
 
-        public ArrayList<String[]> ReadCSVfile(File DataFile) {
+        public ArrayList<Entry[]> ReadCSVfile(File DataFile) {
             try {
                 BufferedReader brd = new BufferedReader(new FileReader(DataFile));
                 while (brd.ready()) {
                     String st = brd.readLine();
                     //OneRow = st.split(",|\\s|;");
-                    this.OneRow = st.split("\\|");
+                    //this.OneRow = st.split("\\|");
                     this.Rs.add(this.OneRow);
                    
                     System.out.println(Arrays.toString(this.OneRow));
