@@ -15,9 +15,9 @@ import javax.swing.table.AbstractTableModel;
  */
 public class MusicLibrary extends AbstractTableModel{
     private final String[] columnNames = { "Skladba", "Kapela", "Album", "Žáner", "Dĺžka", "Rok vydania" };
-        private ArrayList<Entry[]> Data = new ArrayList<Entry[]>();
+        private ArrayList<Entry> Data = new ArrayList<Entry>();
 
-        public void AddCSVData(ArrayList<Entry[]> DataIn) {
+        public void AddCSVData(ArrayList<Entry> DataIn) {
             this.Data = DataIn;
             this.fireTableDataChanged();
         }
@@ -39,6 +39,6 @@ public class MusicLibrary extends AbstractTableModel{
 
         @Override
         public Object getValueAt(int row, int col) {
-            return this.Data.get(row)[col];
+            return this.Data.get(row).toArray()[col];
         }
 }
