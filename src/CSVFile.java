@@ -4,7 +4,6 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 
 /*
  * Made for purposes connected with semestral work
@@ -18,25 +17,16 @@ import java.util.Arrays;
  * @author krama
  */
 public class CSVFile {
-private final ArrayList<Entry[]> Rs = new ArrayList<Entry[]>();
-        private Entry[] OneRow;
-
-        public ArrayList<Entry[]> ReadCSVfile(File DataFile) {
-            try {
-                BufferedReader brd = new BufferedReader(new FileReader(DataFile));
-                while (brd.ready()) {
-                    String st = brd.readLine();
-                    //OneRow = st.split(",|\\s|;");
-                    //this.OneRow = st.split("\\|");
-                    this.Rs.add(this.OneRow);
-                   
-                    System.out.println(Arrays.toString(this.OneRow));
-                } // end of while
-            } // end of try
-            catch (IOException e) {
-                String errmsg = e.getMessage();
-                System.out.println("File not found:" + errmsg);
-            } // end of Catch
-            return this.Rs;
-        } // end of ReadFile method   
+    public ArrayList<Entry> ReadCSVfile(File DataFile) {
+        ArrayList<Entry> data = new ArrayList<Entry>();
+        try {
+            BufferedReader brd = new BufferedReader(new FileReader(DataFile));
+            while (brd.ready()) {
+                data.add(new Entry(brd.readLine()));
+            }
+        } catch (IOException e) {
+            System.err.println("File not found:" + e.getMessage());
+        }
+        return data;
+    }
 }
