@@ -130,5 +130,10 @@ public class Entry {
                 + "Dĺžka: " + this.aDuration + "s"; 
     }
     
+    public String[] toArray(){
+        return new String[] {this.aSong, this.aAlbum, this.aGenre.toString(),
+                             Integer.toString(this.aDuration),
+                             Integer.toString(this.aYear)};
+    }
 
 }
