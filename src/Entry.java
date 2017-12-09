@@ -1,5 +1,7 @@
 
-import java.lang.reflect.Array;
+import java.util.Arrays;
+
+
 
 /*
  * Made for purposes connected with semestral work
@@ -37,7 +39,9 @@ public class Entry {
         this.aGenre = paGenre;
     }
     public Entry (String paCSLine) {
-        String[] parts = paCSLine.split("|");
+        //System.out.println(paCSLine);
+        String[] parts = paCSLine.split("\\|");
+        //System.out.println(Arrays.toString(parts));
         this.aSong = parts[0];
         this.aBand = parts[1];
         this.aAlbum = parts[2];
@@ -123,15 +127,18 @@ public class Entry {
     
     public String toString(){
         return "Skladba: " + this.aSong 
-                + "Album: " + this.aAlbum 
-                + "Kapela: " + this.aBand
-                + "Žáner: " + this.aGenre.toString() 
-                + "Rok: " + this.aYear 
-                + "Dĺžka: " + this.aDuration + "s"; 
+                + " Album: " + this.aAlbum 
+                + " Kapela: " + this.aBand
+                + " Žáner: " + this.aGenre.toString() 
+                + " Rok: " + this.aYear 
+                + " Dĺžka: " + this.aDuration + "s"; 
     }
     
     public String[] toArray(){
-        return new String[] {this.aSong, this.aAlbum, this.aGenre.toString(),
+        return new String[] {this.aSong, 
+                             this.aBand,
+                             this.aAlbum,
+                             this.aGenre.toString(),
                              Integer.toString(this.aDuration),
                              Integer.toString(this.aYear)};
     }

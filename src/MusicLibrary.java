@@ -39,6 +39,7 @@ public class MusicLibrary extends AbstractTableModel{
 
         @Override
         public Object getValueAt(int row, int col) {
+            //System.out.println(this.Data.get(row).toString());
             return this.Data.get(row).toArray()[col];
         }
 }
