@@ -45,15 +45,12 @@ public class Library extends javax.swing.JFrame {
         labelAddBand = new javax.swing.JLabel();
         textAddBand = new javax.swing.JTextField();
         labelAddGenre = new javax.swing.JLabel();
-        textAddGenre = new javax.swing.JTextField();
         labelAddDuration = new javax.swing.JLabel();
         textAddDuration = new javax.swing.JTextField();
         labelAddYear = new javax.swing.JLabel();
         textAddYear = new javax.swing.JTextField();
         butAdd = new javax.swing.JButton();
-        musicLibrary = new MusicLibrary();
-
-        musicLibrary.AddCSVData(new CSVFile().ReadCSVfile(new File("Library.csv")));
+        comboAddGenre = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Music Library");
@@ -68,7 +65,7 @@ public class Library extends javax.swing.JFrame {
             }
         });
 
-        jTable1.setModel(musicLibrary);
+        jTable1.setModel(new MusicLibrary());
         jScrollPane1.setViewportView(jTable1);
 
         jScrollPane2.setViewportView(jScrollPane1);
@@ -89,28 +86,33 @@ public class Library extends javax.swing.JFrame {
 
         butAdd.setText("Pridať skladbu do knižnice");
 
+        comboAddGenre.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Rock", "Pop-Punk", "Punk", "Alternative", "Metalcore", "Post-Hardcore", "Metal", "Hardcore", "Deathcore", "Punk-Rock", "Hard-Rock", "Electronic", "Rap-Rock", "Pop", "Voice Memo", "Rap", "Electronic-Rock", "Uncategorised", "Remix" }));
+        comboAddGenre.setSelectedItem("Rock"
+            + "Pop-Punk"
+            + "");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 635, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(labelSearch)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(textSearch)))
-                .addGap(18, 18, 18)
+                        .addComponent(textSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 569, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 715, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(labelAddHead, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jSeparator2)
                     .addComponent(textAddSong)
                     .addComponent(textAddAlbum)
                     .addComponent(textAddBand)
-                    .addComponent(textAddGenre)
                     .addComponent(textAddDuration)
                     .addComponent(textAddYear)
+                    .addComponent(butAdd, javax.swing.GroupLayout.DEFAULT_SIZE, 156, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(labelAddSong)
@@ -120,7 +122,7 @@ public class Library extends javax.swing.JFrame {
                             .addComponent(labelAddDuration)
                             .addComponent(labelAddYear))
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(butAdd, javax.swing.GroupLayout.DEFAULT_SIZE, 224, Short.MAX_VALUE))
+                    .addComponent(comboAddGenre, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -152,7 +154,7 @@ public class Library extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(labelAddGenre)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(textAddGenre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(comboAddGenre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(labelAddDuration)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -208,9 +210,10 @@ public class Library extends javax.swing.JFrame {
             }
         });
     }
-
+    private MusicLibrary musicLibrary;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton butAdd;
+    private javax.swing.JComboBox<String> comboAddGenre;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;
@@ -227,10 +230,8 @@ public class Library extends javax.swing.JFrame {
     private javax.swing.JTextField textAddAlbum;
     private javax.swing.JTextField textAddBand;
     private javax.swing.JTextField textAddDuration;
-    private javax.swing.JTextField textAddGenre;
     private javax.swing.JTextField textAddSong;
     private javax.swing.JTextField textAddYear;
     private javax.swing.JTextField textSearch;
-    private MusicLibrary musicLibrary;
     // End of variables declaration//GEN-END:variables
 }
