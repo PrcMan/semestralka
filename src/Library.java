@@ -70,7 +70,7 @@ public class Library extends javax.swing.JFrame {
             }
         });
 
-        jTable1.setModel(new MusicLibrary());
+        jTable1.setModel(this.musicLibrary);
         jScrollPane1.setViewportView(jTable1);
 
         jScrollPane2.setViewportView(jScrollPane1);
@@ -90,11 +90,14 @@ public class Library extends javax.swing.JFrame {
         labelAddYear.setText("Rok vydania: ");
 
         butAdd.setText("Pridať skladbu do knižnice");
+        butAdd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                butAddActionPerformed(evt);
+            }
+        });
 
         comboAddGenre.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Rock", "Pop-Punk", "Punk", "Alternative", "Metalcore", "Post-Hardcore", "Metal", "Hardcore", "Deathcore", "Punk-Rock", "Hard-Rock", "Electronic", "Rap-Rock", "Pop", "Voice Memo", "Rap", "Electronic-Rock", "Uncategorised", "Remix" }));
-        comboAddGenre.setSelectedItem("Rock"
-            + "Pop-Punk"
-            + "");
+        comboAddGenre.setSelectedItem("Rock");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -180,6 +183,13 @@ public class Library extends javax.swing.JFrame {
     private void textSearchKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textSearchKeyReleased
         this.musicLibrary.search(this.textSearch.getText());
     }//GEN-LAST:event_textSearchKeyReleased
+
+    private void butAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butAddActionPerformed
+        this.musicLibrary.add(this.textAddSong.getText(), this.textAddAlbum.getText(),
+                              this.textAddBand.getText(), Integer.parseInt(this.textAddYear.getText()),
+                              Integer.parseInt(this.textAddDuration.getText()),
+                              this.comboAddGenre.getSelectedItem());
+    }//GEN-LAST:event_butAddActionPerformed
 
     /**
      * @param args the command line arguments
