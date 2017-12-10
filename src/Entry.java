@@ -146,7 +146,7 @@ public class Entry {
     public boolean has(String query) {
         if (query.length() > 0) {
             for (String item : this.toArray()) {
-                if(item.toLowerCase().matches(query.toLowerCase())) {
+                if(item.toLowerCase().matches("(.*)" + query.toLowerCase() + "(.*)")) {
                     return true;
                 }
             }

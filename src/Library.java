@@ -171,7 +171,7 @@ public class Library extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void textSearchKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textSearchKeyReleased
-        
+        this.musicLibrary.search(this.textSearch.getText());
     }//GEN-LAST:event_textSearchKeyReleased
 
     /**
