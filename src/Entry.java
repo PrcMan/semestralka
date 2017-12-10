@@ -6,7 +6,7 @@ import java.util.Arrays;
 /*
  * Made for purposes connected with semestral work
  * Copying and other editing without permission of the author
- * is strictly prohibited and is punishable by law. This work is by 
+ * is strictly prohibited and is punishable by law. This work is by
  * all means property of the author.
  */
 
@@ -22,13 +22,13 @@ public class Entry {
     private int aDuration;
     private Genre aGenre;
     /**
-     * 
+     *
      * @param paSong
      * @param paAlbum
      * @param paBand
      * @param paYear
      * @param paDuration
-     * @param paGenre 
+     * @param paGenre
      */
     public Entry(String paSong, String paAlbum, String paBand, int paYear, int paDuration, Genre paGenre){
         this.aSong = paSong;
@@ -66,8 +66,8 @@ public class Entry {
         return this.aSong;
     }
     /**
-     * 
-     * @param paSong 
+     *
+     * @param paSong
      */
     public void setSong(String paSong){
         this.aSong = paSong;
@@ -80,62 +80,62 @@ public class Entry {
         return this.aAlbum;
     }
     /**
-     * 
-     * @param paAlbum 
+     *
+     * @param paAlbum
      */
     public void setAlbum(String paAlbum){
         this.aAlbum = paAlbum;
     }
     /**
-     * 
-     * @return 
+     *
+     * @return
      */
     public String getBand(){
         return this.aBand;
     }
     /**
-     * 
-     * @param paBand 
+     *
+     * @param paBand
      */
     public void setBand(String paBand){
         this.aBand = paBand;
     }
-    
+
     public int getYear(){
         return this.aYear;
     }
-    
+
     public void setYear(int paYear){
         this.aYear = paYear;
     }
-    
+
     public int getDuration(){
         return this.aDuration;
     }
-    
+
     public void setDuration(int paDuration){
         this.aDuration = paDuration;
     }
-    
+
     public Genre getGenre(){
         return this.aGenre;
     }
-    
+
     public void setGenre(Genre paGenre){
         this.aGenre = paGenre;
     }
-    
+
     public String toString(){
-        return "Skladba: " + this.aSong 
-                + " Album: " + this.aAlbum 
+        return "Skladba: " + this.aSong
+                + " Album: " + this.aAlbum
                 + " Kapela: " + this.aBand
-                + " Žáner: " + this.aGenre.toString() 
-                + " Rok: " + this.aYear 
-                + " Dĺžka: " + this.aDuration + "s"; 
+                + " Žáner: " + this.aGenre.toString()
+                + " Rok: " + this.aYear
+                + " Dĺžka: " + this.aDuration + "s";
     }
-    
+
     public String[] toArray(){
-        return new String[] {this.aSong, 
+        return new String[] {this.aSong,
                              this.aBand,
                              this.aAlbum,
                              this.aGenre.toString(),
@@ -143,4 +143,14 @@ public class Entry {
                              Integer.toString(this.aYear)};
     }
 
+    public boolean has(String query) {
+        if (query.length() > 0) {
+            for (String item : this.toArray()) {
+                if(item.toLowerCase().matches(query.toLowerCase())) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
 }
