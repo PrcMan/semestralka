@@ -5,6 +5,9 @@
  * all means property of the author.
  */
 
+import java.io.File;
+import java.util.ArrayList;
+
 /**
  *
  * @author krama
@@ -48,6 +51,9 @@ public class Library extends javax.swing.JFrame {
         labelAddYear = new javax.swing.JLabel();
         textAddYear = new javax.swing.JTextField();
         butAdd = new javax.swing.JButton();
+        musicLibrary = new MusicLibrary();
+
+        musicLibrary.AddCSVData(new CSVFile().ReadCSVfile(new File("Library.csv")));
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Music Library");
@@ -62,7 +68,7 @@ public class Library extends javax.swing.JFrame {
             }
         });
 
-        jTable1.setModel(new MusicLibrary());
+        jTable1.setModel(musicLibrary);
         jScrollPane1.setViewportView(jTable1);
 
         jScrollPane2.setViewportView(jScrollPane1);
@@ -225,5 +231,6 @@ public class Library extends javax.swing.JFrame {
     private javax.swing.JTextField textAddSong;
     private javax.swing.JTextField textAddYear;
     private javax.swing.JTextField textSearch;
+    private MusicLibrary musicLibrary;
     // End of variables declaration//GEN-END:variables
 }
