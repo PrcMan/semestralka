@@ -56,17 +56,13 @@ public class Library extends javax.swing.JFrame {
         labelSearch.setFont(new java.awt.Font("Consolas", 0, 12)); // NOI18N
         labelSearch.setText("Hľadať: ");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+        textSearch.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                textSearchKeyReleased(evt);
             }
-        ));
+        });
+
+        jTable1.setModel(new MusicLibrary());
         jScrollPane1.setViewportView(jTable1);
 
         jScrollPane2.setViewportView(jScrollPane1);
@@ -74,12 +70,6 @@ public class Library extends javax.swing.JFrame {
         labelAddHead.setText("Pridanie songu:");
 
         labelAddSong.setText("Názov songu:");
-
-        textAddSong.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textAddSongActionPerformed(evt);
-            }
-        });
 
         labelAddAlbum.setText("Názov albumu:");
 
@@ -174,9 +164,9 @@ public class Library extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void textAddSongActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textAddSongActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_textAddSongActionPerformed
+    private void textSearchKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textSearchKeyReleased
+        
+    }//GEN-LAST:event_textSearchKeyReleased
 
     /**
      * @param args the command line arguments
@@ -219,7 +209,7 @@ public class Library extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JTable jTable1;
+    public javax.swing.JTable jTable1;
     private javax.swing.JLabel labelAddAlbum;
     private javax.swing.JLabel labelAddBand;
     private javax.swing.JLabel labelAddDuration;
