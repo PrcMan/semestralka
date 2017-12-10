@@ -6,7 +6,6 @@
  */
 
 import java.io.File;
-import java.util.ArrayList;
 
 /**
  *
@@ -18,7 +17,13 @@ public class Library extends javax.swing.JFrame {
      * Creates new form Library
      */
     public Library() {
+        initMusicLibrary();
         initComponents();
+    }
+
+    private void initMusicLibrary() {
+        musicLibrary = new MusicLibrary();
+        musicLibrary.AddCSVData(new CSVFile().ReadCSVfile(new File("Library.csv")));
     }
 
     /**
