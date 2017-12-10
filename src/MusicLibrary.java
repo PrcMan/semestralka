@@ -25,6 +25,12 @@ public class MusicLibrary extends AbstractTableModel{
         this.fireTableDataChanged();
     }
 
+    public void add(String paSong, String paAlbum, String paBand, int paYear, int paDuration, Genre paGenre) {
+        this.fullData.add(new Entry(paSong, paAlbum, paBand, paYear, paDuration, paGenre));
+        this.Data = this.fullData;
+        this.fireTableDataChanged();
+    }
+
     public void search(String query) {
         if (query.length() > 0) {
             ArrayList<Entry> queriedData = new ArrayList<>();
