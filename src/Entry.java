@@ -137,7 +137,9 @@ public class Entry {
                 Integer.toString(this.aDuration),
                 Integer.toString(this.aYear)};
     }
-
+    /*public String toCSV(String deliminator){
+        return ;
+    }*/
     public boolean has(String query) {
         if (query.length() > 0) {
             for (String item : this.toArray()) {
