@@ -231,7 +231,9 @@ public class Library extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Library().setVisible(true);
+                Library library = new Library();
+                library.setLocationRelativeTo(null);
+                library.setVisible(true);
             }
         });
     }
