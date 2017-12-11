@@ -185,10 +185,12 @@ public class Library extends javax.swing.JFrame {
     }//GEN-LAST:event_textSearchKeyReleased
 
     private void butAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butAddActionPerformed
+        /*
         this.musicLibrary.add(this.textAddSong.getText(), this.textAddAlbum.getText(),
                               this.textAddBand.getText(), Integer.parseInt(this.textAddYear.getText()),
                               Integer.parseInt(this.textAddDuration.getText()),
                               this.comboAddGenre.getSelectedItem());
+        */
     }//GEN-LAST:event_butAddActionPerformed
 
     /**

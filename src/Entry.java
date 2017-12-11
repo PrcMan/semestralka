@@ -46,7 +46,7 @@ public class Entry {
         this.aBand = parts[1];
         this.aAlbum = parts[2];
         for(Genre genre : Genre.values()){
-            if(parts[3].equals(genre.toString())){
+            if(parts[3].equals(genre.getGenre())){
                 this.aGenre = genre;
             }
         }
