@@ -137,9 +137,16 @@ public class Entry {
                 Integer.toString(this.aDuration),
                 Integer.toString(this.aYear)};
     }
-    /*public String toCSV(String deliminator){
-        return ;
-    }*/
+
+    public String toCSV(String deliminator){
+        return this.aSong + deliminator
+                + this.aBand + deliminator
+                + this.aAlbum + deliminator
+                + this.aGenre.toString() + deliminator
+                + Integer.toString(this.aDuration) + deliminator
+                + Integer.toString(this.aYear) + "\n";
+    }
+
     public boolean has(String query) {
         if (query.length() > 0) {
             for (String item : this.toArray()) {

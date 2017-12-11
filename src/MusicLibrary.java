@@ -7,6 +7,9 @@
 
 
 import javax.swing.table.AbstractTableModel;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 
 /**
@@ -23,9 +26,11 @@ public class MusicLibrary extends AbstractTableModel {
     }
 
     public void add(String paSong, String paAlbum, String paBand, int paYear, int paDuration, Genre paGenre) {
-        this.fullData.add(new Entry(paSong, paAlbum, paBand, paYear, paDuration, paGenre));
+        Entry entry = new Entry(paSong, paAlbum, paBand, paYear, paDuration, paGenre);
+        this.fullData.add(entry);
         this.Data = this.fullData;
         this.fireTableDataChanged();
+        this.saveToFile(entry);
     }
 
     public void search(String query) {
@@ -41,6 +46,16 @@ public class MusicLibrary extends AbstractTableModel {
             this.Data = this.fullData;
         }
         this.fireTableDataChanged();
+    }
+
+    public void saveToFile(Entry entry) {
+        try {
+            BufferedWriter bw = new BufferedWriter(new FileWriter("Library.csv", true));
+            bw.write(entry.toCSV("|"));
+            bw.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
