@@ -10,11 +10,10 @@ import javax.swing.table.AbstractTableModel;
 import java.util.ArrayList;
 
 /**
- *
  * @author krama
  */
-public class MusicLibrary extends AbstractTableModel{
-    private final String[] columnNames = { "Skladba", "Kapela", "Album", "Žáner", "Dĺžka", "Rok vydania" };
+public class MusicLibrary extends AbstractTableModel {
+    private final String[] columnNames = {"Skladba", "Kapela", "Album", "Žáner", "Dĺžka", "Rok vydania"};
     private ArrayList<Entry> Data = new ArrayList<>();
     private ArrayList<Entry> fullData = new ArrayList<>();
 
@@ -33,7 +32,7 @@ public class MusicLibrary extends AbstractTableModel{
         if (query.length() > 0) {
             ArrayList<Entry> queriedData = new ArrayList<>();
             this.fullData.forEach(entry -> {
-                if(entry.has(query)) {
+                if (entry.has(query)) {
                     queriedData.add(entry);
                 }
             });
@@ -46,7 +45,7 @@ public class MusicLibrary extends AbstractTableModel{
 
     @Override
     public int getColumnCount() {
-        return this.columnNames.length;// length;
+        return this.columnNames.length;
     }
 
     @Override

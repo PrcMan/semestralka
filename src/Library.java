@@ -1,14 +1,13 @@
 /*
  * Made for purposes connected with semestral work
  * Copying and other editing without permission of the author
- * is strictly prohibited and is punishable by law. This work is by 
+ * is strictly prohibited and is punishable by law. This work is by
  * all means property of the author.
  */
 
 import java.io.File;
 
 /**
- *
  * @author krama
  */
 public class Library extends javax.swing.JFrame {
@@ -189,7 +188,7 @@ public class Library extends javax.swing.JFrame {
                 this.textAddBand.getText(),
                 Integer.parseInt(this.textAddYear.getText()),
                 Integer.parseInt(this.textAddDuration.getText()),
-                (Genre)this.comboAddGenre.getSelectedItem());
+                (Genre) this.comboAddGenre.getSelectedItem());
         this.textAddSong.setText("");
         this.textAddAlbum.setText("");
         this.textAddBand.setText("");
@@ -208,7 +207,7 @@ public class Library extends javax.swing.JFrame {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -237,6 +236,7 @@ public class Library extends javax.swing.JFrame {
             }
         });
     }
+
     private MusicLibrary musicLibrary;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton butAdd;
@@ -245,7 +245,7 @@ public class Library extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
-    public javax.swing.JTable jTable1;
+    private javax.swing.JTable jTable1;
     private javax.swing.JLabel labelAddAlbum;
     private javax.swing.JLabel labelAddBand;
     private javax.swing.JLabel labelAddDuration;
