@@ -6,7 +6,6 @@
  */
 
 import java.io.File;
-import java.io.FileWriter;
 
 /**
  * @author krama
@@ -199,12 +198,6 @@ public class Library extends javax.swing.JFrame {
         if (this.textSearch.getText().length() != 0) {
             this.textSearchKeyReleased(null); // Hack to preserve search as I don't necessarily use the event itself.
         }
-        /*
-        FileWriter out = new FileWriter("Library.csv");
-        out.append(Entry toCSV("\\|");
-        out.flush();
-        out.close();
-        */
     }//GEN-LAST:event_butAddActionPerformed
 
     /**
