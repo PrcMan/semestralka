@@ -35,8 +35,9 @@ public enum Genre {
     private Genre(String paGenre){
         this.aGenre = paGenre;
     }
-    
-    public String getGenre(){
+
+    @Override
+    public String toString() {
         return aGenre;
     }
 }
