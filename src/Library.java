@@ -96,8 +96,7 @@ public class Library extends javax.swing.JFrame {
             }
         });
 
-        comboAddGenre.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Rock", "Pop-Punk", "Punk", "Alternative", "Metalcore", "Post-Hardcore", "Metal", "Hardcore", "Deathcore", "Punk-Rock", "Hard-Rock", "Electronic", "Rap-Rock", "Pop", "Voice Memo", "Rap", "Electronic-Rock", "Uncategorised", "Remix" }));
-        comboAddGenre.setSelectedItem("Rock");
+        comboAddGenre.setModel(new javax.swing.DefaultComboBoxModel(Genre.values()));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -185,12 +184,21 @@ public class Library extends javax.swing.JFrame {
     }//GEN-LAST:event_textSearchKeyReleased
 
     private void butAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butAddActionPerformed
-        /*
-        this.musicLibrary.add(this.textAddSong.getText(), this.textAddAlbum.getText(),
-                              this.textAddBand.getText(), Integer.parseInt(this.textAddYear.getText()),
-                              Integer.parseInt(this.textAddDuration.getText()),
-                              this.comboAddGenre.getSelectedItem());
-        */
+        this.musicLibrary.add(this.textAddSong.getText(),
+                this.textAddAlbum.getText(),
+                this.textAddBand.getText(),
+                Integer.parseInt(this.textAddYear.getText()),
+                Integer.parseInt(this.textAddDuration.getText()),
+                (Genre)this.comboAddGenre.getSelectedItem());
+        this.textAddSong.setText("");
+        this.textAddAlbum.setText("");
+        this.textAddBand.setText("");
+        this.textAddYear.setText("");
+        this.textAddDuration.setText("");
+        this.comboAddGenre.setSelectedItem(Genre.ROCK);
+        if (this.textSearch.getText().length() != 0) {
+            this.textSearchKeyReleased(null); // Hack to preserve search as I don't necessarily use the event itself.
+        }
     }//GEN-LAST:event_butAddActionPerformed
 
     /**
