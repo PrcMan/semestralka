@@ -191,11 +191,11 @@ public class Library extends javax.swing.JFrame {
         boolean proceed = true;
         if(this.textAddBand.getText().equals("")){
             proceed = false;
-            this.labelStatus.setText("Vyplňte názov kapely\nZáznam nebol uložený.");
+            this.labelStatus.setText("Vyplňte názov kapely.");
         }
         if(this.textAddSong.getText().equals("")){
             proceed = false;
-            this.labelStatus.setText("Názov songu nesmie byť prázdny\nZáznam nebol uložený!");
+            this.labelStatus.setText("Názov songu nesmie byť prázdny.");
         }
         if(this.textAddDuration.getText().equals("")){
             proceed = false;
@@ -235,6 +235,8 @@ public class Library extends javax.swing.JFrame {
             if (this.textSearch.getText().length() != 0) {
                 this.textSearchKeyReleased(null); // Hack to preserve search as I don't necessarily use the event itself.
             }
+        } else {
+            this.labelStatus.setText(this.labelStatus.getText() + " Záznam nebol uložený!");
         }
     }//GEN-LAST:event_butAddActionPerformed
 
