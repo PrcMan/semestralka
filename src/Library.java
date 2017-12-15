@@ -96,13 +96,7 @@ public class Library extends javax.swing.JFrame {
             }
         });
 
-        comboAddGenre.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Genre.values()" }));
-        comboAddGenre.setSelectedItem("Rock");
-        comboAddGenre.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                comboAddGenreActionPerformed(evt);
-            }
-        });
+        comboAddGenre.setModel(new javax.swing.DefaultComboBoxModel(Genre.values()));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -195,30 +189,32 @@ public class Library extends javax.swing.JFrame {
 
     private void butAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butAddActionPerformed
         boolean proceed = true;
-        if(this.textAddBand.getText() == ""){
+        if(this.textAddBand.getText().equals("")){
             proceed = false;
             this.labelStatus.setText("Vyplňte názov kapely\nZáznam nebol uložený.");
         }
-        if(this.textAddSong.getText() == ""){
+        if(this.textAddSong.getText().equals("")){
             proceed = false;
             this.labelStatus.setText("Názov songu nesmie byť prázdny\nZáznam nebol uložený!");
         }
-        if(this.textAddDuration.getText() == ""){
+        if(this.textAddDuration.getText().equals("")){
             proceed = false;
             this.labelStatus.setText("Vyplňte dĺžku skladby!");
         }
+        int duration = 0;
         try{
-            int duration = Integer.parseInt(this.textAddDuration.getText());
+            duration = Integer.parseInt(this.textAddDuration.getText());
         } catch (NumberFormatException e){
             proceed = false;
             this.labelStatus.setText("Dĺžka skladby musí byť ČÍSLO!!!");
         }
-        if(this.textAddYear.getText() == ""){
+        if(this.textAddYear.getText().equals("")){
             proceed = false;
             this.labelStatus.setText("Vyplňte rok vydania!");
         }
+        int year = 0;
         try{
-            int year = Integer.parseInt(this.textAddYear.getText());
+            year = Integer.parseInt(this.textAddYear.getText());
         } catch (NumberFormatException e){
             proceed = false;
             this.labelStatus.setText("Rok vydania musí byť ČÍSLO!!!");
@@ -227,8 +223,8 @@ public class Library extends javax.swing.JFrame {
             this.musicLibrary.add(this.textAddSong.getText(),
                     this.textAddAlbum.getText(),
                     this.textAddBand.getText(),
-                    Integer.parseInt(this.textAddYear.getText()),
-                    Integer.parseInt(this.textAddDuration.getText()),
+                    year,
+                    duration,
                     (Genre) this.comboAddGenre.getSelectedItem());
             this.textAddSong.setText("");
             this.textAddAlbum.setText("");
@@ -240,15 +236,7 @@ public class Library extends javax.swing.JFrame {
                 this.textSearchKeyReleased(null); // Hack to preserve search as I don't necessarily use the event itself.
             }
         }
-        else {
-            this.labelStatus.setText(this.labelStatus.getText() 
-                    + "\nHups???");
-        }
     }//GEN-LAST:event_butAddActionPerformed
-
-    private void comboAddGenreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboAddGenreActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_comboAddGenreActionPerformed
 
     /**
      * @param args the command line arguments
