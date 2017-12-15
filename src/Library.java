@@ -96,8 +96,13 @@ public class Library extends javax.swing.JFrame {
             }
         });
 
-        comboAddGenre.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Rock", "Pop-Punk", "Punk", "Alternative", "Metalcore", "Post-Hardcore", "Metal", "Hardcore", "Deathcore", "Punk-Rock", "Hard-Rock", "Electronic", "Rap-Rock", "Pop", "Voice Memo", "Rap", "Electronic-Rock", "Uncategorised", "Remix" }));
+        comboAddGenre.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Genre.values()" }));
         comboAddGenre.setSelectedItem("Rock");
+        comboAddGenre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboAddGenreActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -241,6 +246,10 @@ public class Library extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_butAddActionPerformed
 
+    private void comboAddGenreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboAddGenreActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_comboAddGenreActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -286,7 +295,7 @@ public class Library extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
-    public javax.swing.JTable jTable1;
+    private javax.swing.JTable jTable1;
     private javax.swing.JLabel labelAddAlbum;
     private javax.swing.JLabel labelAddBand;
     private javax.swing.JLabel labelAddDuration;

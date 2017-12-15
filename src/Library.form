@@ -161,7 +161,6 @@
               </Properties>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_SerializeTo" type="java.lang.String" value="Library_jTable1"/>
-                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
               </AuxValues>
             </Component>
           </SubComponents>
@@ -226,32 +225,17 @@
     <Component class="javax.swing.JComboBox" name="comboAddGenre">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="19">
-            <StringItem index="0" value="Rock"/>
-            <StringItem index="1" value="Pop-Punk"/>
-            <StringItem index="2" value="Punk"/>
-            <StringItem index="3" value="Alternative"/>
-            <StringItem index="4" value="Metalcore"/>
-            <StringItem index="5" value="Post-Hardcore"/>
-            <StringItem index="6" value="Metal"/>
-            <StringItem index="7" value="Hardcore"/>
-            <StringItem index="8" value="Deathcore"/>
-            <StringItem index="9" value="Punk-Rock"/>
-            <StringItem index="10" value="Hard-Rock"/>
-            <StringItem index="11" value="Electronic"/>
-            <StringItem index="12" value="Rap-Rock"/>
-            <StringItem index="13" value="Pop"/>
-            <StringItem index="14" value="Voice Memo"/>
-            <StringItem index="15" value="Rap"/>
-            <StringItem index="16" value="Electronic-Rock"/>
-            <StringItem index="17" value="Uncategorised"/>
-            <StringItem index="18" value="Remix"/>
+          <StringArray count="1">
+            <StringItem index="0" value="Genre.values()"/>
           </StringArray>
         </Property>
         <Property name="selectedItem" type="java.lang.Object" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
           <Connection code="&quot;Rock&quot;" type="code"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="comboAddGenreActionPerformed"/>
+      </Events>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
       </AuxValues>
