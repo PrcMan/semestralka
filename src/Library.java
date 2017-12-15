@@ -204,7 +204,8 @@ public class Library extends javax.swing.JFrame {
         }
         try{
             int duration = Integer.parseInt(this.textAddDuration.getText());
-        } catch (Exception e){
+        } catch (NumberFormatException e){
+            proceed = false;
             this.labelStatus.setText("Dĺžka skladby musí byť ČÍSLO!!!");
         }
         if(this.textAddYear.getText() == ""){
@@ -213,7 +214,8 @@ public class Library extends javax.swing.JFrame {
         }
         try{
             int year = Integer.parseInt(this.textAddYear.getText());
-        } catch (Exception e){
+        } catch (NumberFormatException e){
+            proceed = false;
             this.labelStatus.setText("Rok vydania musí byť ČÍSLO!!!");
         }
         if(proceed){
