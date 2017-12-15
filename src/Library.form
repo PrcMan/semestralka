@@ -45,24 +45,25 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="labelAddHead" max="32767" attributes="0"/>
                   <Component id="jSeparator2" max="32767" attributes="0"/>
-                  <Component id="textAddSong" max="32767" attributes="0"/>
                   <Component id="textAddAlbum" alignment="0" max="32767" attributes="0"/>
                   <Component id="textAddBand" alignment="0" max="32767" attributes="0"/>
                   <Component id="textAddDuration" alignment="0" max="32767" attributes="0"/>
                   <Component id="textAddYear" alignment="0" max="32767" attributes="0"/>
-                  <Component id="butAdd" alignment="0" pref="156" max="32767" attributes="0"/>
+                  <Component id="comboAddGenre" alignment="0" pref="193" max="32767" attributes="0"/>
+                  <Component id="textAddSong" alignment="0" max="32767" attributes="0"/>
+                  <Component id="butAdd" alignment="1" max="32767" attributes="0"/>
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="labelAddSong" min="-2" max="-2" attributes="0"/>
                           <Component id="labelAddAlbum" min="-2" max="-2" attributes="0"/>
                           <Component id="labelAddBand" min="-2" max="-2" attributes="0"/>
                           <Component id="labelAddGenre" min="-2" max="-2" attributes="0"/>
                           <Component id="labelAddDuration" min="-2" max="-2" attributes="0"/>
                           <Component id="labelAddYear" min="-2" max="-2" attributes="0"/>
+                          <Component id="labelAddSong" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="labelStatus" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
-                  <Component id="comboAddGenre" alignment="0" max="32767" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
@@ -78,8 +79,11 @@
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jScrollPane2" pref="485" max="32767" attributes="0"/>
-                  <Group type="102" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="jScrollPane2" pref="485" max="32767" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
                       <Component id="labelAddHead" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jSeparator2" min="-2" pref="10" max="-2" attributes="0"/>
@@ -109,10 +113,11 @@
                       <Component id="textAddYear" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="butAdd" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="labelStatus" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -250,6 +255,8 @@
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
       </AuxValues>
+    </Component>
+    <Component class="javax.swing.JLabel" name="labelStatus">
     </Component>
   </SubComponents>
 </Form>

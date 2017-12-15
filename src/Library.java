@@ -55,6 +55,7 @@ public class Library extends javax.swing.JFrame {
         textAddYear = new javax.swing.JTextField();
         butAdd = new javax.swing.JButton();
         comboAddGenre = new javax.swing.JComboBox<>();
+        labelStatus = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Music Library");
@@ -95,7 +96,8 @@ public class Library extends javax.swing.JFrame {
             }
         });
 
-        comboAddGenre.setModel(new javax.swing.DefaultComboBoxModel(Genre.values()));
+        comboAddGenre.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Rock", "Pop-Punk", "Punk", "Alternative", "Metalcore", "Post-Hardcore", "Metal", "Hardcore", "Deathcore", "Punk-Rock", "Hard-Rock", "Electronic", "Rap-Rock", "Pop", "Voice Memo", "Rap", "Electronic-Rock", "Uncategorised", "Remix" }));
+        comboAddGenre.setSelectedItem("Rock");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -113,22 +115,23 @@ public class Library extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(labelAddHead, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jSeparator2)
-                    .addComponent(textAddSong)
                     .addComponent(textAddAlbum)
                     .addComponent(textAddBand)
                     .addComponent(textAddDuration)
                     .addComponent(textAddYear)
-                    .addComponent(butAdd, javax.swing.GroupLayout.DEFAULT_SIZE, 156, Short.MAX_VALUE)
+                    .addComponent(comboAddGenre, 0, 193, Short.MAX_VALUE)
+                    .addComponent(textAddSong)
+                    .addComponent(butAdd, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(labelAddSong)
                             .addComponent(labelAddAlbum)
                             .addComponent(labelAddBand)
                             .addComponent(labelAddGenre)
                             .addComponent(labelAddDuration)
-                            .addComponent(labelAddYear))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(comboAddGenre, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(labelAddYear)
+                            .addComponent(labelAddSong)
+                            .addComponent(labelStatus))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -140,7 +143,9 @@ public class Library extends javax.swing.JFrame {
                     .addComponent(textSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 485, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 485, Short.MAX_VALUE)
+                        .addContainerGap())
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(labelAddHead)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -171,8 +176,9 @@ public class Library extends javax.swing.JFrame {
                         .addComponent(textAddYear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(butAdd)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(labelStatus)
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
 
         pack();
@@ -183,20 +189,53 @@ public class Library extends javax.swing.JFrame {
     }//GEN-LAST:event_textSearchKeyReleased
 
     private void butAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butAddActionPerformed
-        this.musicLibrary.add(this.textAddSong.getText(),
-                this.textAddAlbum.getText(),
-                this.textAddBand.getText(),
-                Integer.parseInt(this.textAddYear.getText()),
-                Integer.parseInt(this.textAddDuration.getText()),
-                (Genre) this.comboAddGenre.getSelectedItem());
-        this.textAddSong.setText("");
-        this.textAddAlbum.setText("");
-        this.textAddBand.setText("");
-        this.textAddYear.setText("");
-        this.textAddDuration.setText("");
-        this.comboAddGenre.setSelectedItem(Genre.ROCK);
-        if (this.textSearch.getText().length() != 0) {
-            this.textSearchKeyReleased(null); // Hack to preserve search as I don't necessarily use the event itself.
+        boolean proceed = true;
+        if(this.textAddBand.getText() == ""){
+            proceed = false;
+            this.labelStatus.setText("Vyplňte názov kapely\nZáznam nebol uložený.");
+        }
+        if(this.textAddSong.getText() == ""){
+            proceed = false;
+            this.labelStatus.setText("Názov songu nesmie byť prázdny\nZáznam nebol uložený!");
+        }
+        if(this.textAddDuration.getText() == ""){
+            proceed = false;
+            this.labelStatus.setText("Vyplňte dĺžku skladby!");
+        }
+        try{
+            int duration = Integer.parseInt(this.textAddDuration.getText());
+        } catch (Exception e){
+            this.labelStatus.setText("Dĺžka skladby musí byť ČÍSLO!!!");
+        }
+        if(this.textAddYear.getText() == ""){
+            proceed = false;
+            this.labelStatus.setText("Vyplňte rok vydania!");
+        }
+        try{
+            int year = Integer.parseInt(this.textAddYear.getText());
+        } catch (Exception e){
+            this.labelStatus.setText("Rok vydania musí byť ČÍSLO!!!");
+        }
+        if(proceed){
+            this.musicLibrary.add(this.textAddSong.getText(),
+                    this.textAddAlbum.getText(),
+                    this.textAddBand.getText(),
+                    Integer.parseInt(this.textAddYear.getText()),
+                    Integer.parseInt(this.textAddDuration.getText()),
+                    (Genre) this.comboAddGenre.getSelectedItem());
+            this.textAddSong.setText("");
+            this.textAddAlbum.setText("");
+            this.textAddBand.setText("");
+            this.textAddYear.setText("");
+            this.textAddDuration.setText("");
+            this.comboAddGenre.setSelectedItem(Genre.ROCK);
+            if (this.textSearch.getText().length() != 0) {
+                this.textSearchKeyReleased(null); // Hack to preserve search as I don't necessarily use the event itself.
+            }
+        }
+        else {
+            this.labelStatus.setText(this.labelStatus.getText() 
+                    + "\nHups???");
         }
     }//GEN-LAST:event_butAddActionPerformed
 
@@ -245,7 +284,7 @@ public class Library extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JTable jTable1;
+    public javax.swing.JTable jTable1;
     private javax.swing.JLabel labelAddAlbum;
     private javax.swing.JLabel labelAddBand;
     private javax.swing.JLabel labelAddDuration;
@@ -254,6 +293,7 @@ public class Library extends javax.swing.JFrame {
     private javax.swing.JLabel labelAddSong;
     private javax.swing.JLabel labelAddYear;
     private javax.swing.JLabel labelSearch;
+    private javax.swing.JLabel labelStatus;
     private javax.swing.JTextField textAddAlbum;
     private javax.swing.JTextField textAddBand;
     private javax.swing.JTextField textAddDuration;

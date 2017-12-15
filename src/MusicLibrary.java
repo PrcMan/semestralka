@@ -13,7 +13,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 /**
- * @author krama
+ * @author Jakub Kramár
  */
 public class MusicLibrary extends AbstractTableModel {
     private final String[] columnNames = {"Skladba", "Kapela", "Album", "Žáner", "Dĺžka", "Rok vydania"};
@@ -54,7 +54,7 @@ public class MusicLibrary extends AbstractTableModel {
             bw.write(entry.toCSV("|"));
             bw.close();
         } catch (IOException e) {
-            e.printStackTrace();
+            System.err.println("Nepodarilo sa zapísať do súboru");
         }
     }
 
